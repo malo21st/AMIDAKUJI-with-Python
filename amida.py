@@ -107,7 +107,7 @@ class linkList:
                     self.setSymbol("⬆⬅")
                 self = self.prev
                 YOKO = False
-        self.setSymbol("●")
+        self.setSymbol("●　")
 
 def makeKuji(BOARD):
     lst = []
