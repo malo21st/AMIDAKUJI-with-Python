@@ -170,9 +170,6 @@ def print3Kuji(lst0, lst1, lst2):
     print()
 
 def main():
-    pass
-  
-if __name__ == '__main__':
     kuji_map = makeKujiMap(5)
    
     kuji0 = makeKuji(kuji_map)
@@ -186,3 +183,7 @@ if __name__ == '__main__':
 
     print3Kuji(kuji0, kuji1, kuji2)
     print2Kuji(kuji0, kuji3)
+  
+if __name__ == '__main__':
+    main()
+    
