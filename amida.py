@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Nov  3 15:09:50 2018
-
 @author: malo
 """
 import random
@@ -51,7 +50,7 @@ def makeKujiMap(num):
 class linkList: 
     # 初期化
     def __init__(self):
-        self.symbol = "｜　"
+        self.symbol = "| "
 #        self.data = None
         self.next = None
         self.prev = None
@@ -65,14 +64,14 @@ class linkList:
         YOKO = False
         while self.next:
 #            print(self.data)
-            self.setSymbol("⬇　")
+            self.setSymbol("v ")
             if not YOKO:
                 if self.right:
-                    self.setSymbol("➡➡")
+                    self.setSymbol(">>")
                     self = self.right
                     YOKO = True
                 elif self.left:
-                    self.setSymbol("⬅　")
+                    self.setSymbol("< ")
                     self = self.left
                     YOKO = True
                 else:
@@ -80,23 +79,23 @@ class linkList:
                     YOKO = False
             else:
                 if self.right:
-                    self.setSymbol("⬇⬅")
+                    self.setSymbol("v<")
                 self = self.next
                 YOKO = False
-        self.setSymbol("●　")
+        self.setSymbol("# ")
 
     def backKuji(self):
         YOKO = False
         while self.prev:
 #            print(self.data)
-            self.setSymbol("⬆　")
+            self.setSymbol("^ ")
             if not YOKO:
                 if self.right:
-                    self.setSymbol("➡➡")
+                    self.setSymbol(">>")
                     self = self.right
                     YOKO = True
                 elif self.left:
-                    self.setSymbol("⬅　")
+                    self.setSymbol("< ")
                     self = self.left
                     YOKO = True
                 else:
@@ -104,10 +103,10 @@ class linkList:
                     YOKO = False
             else:
                 if self.right:
-                    self.setSymbol("⬆⬅")
+                    self.setSymbol("^<")
                 self = self.prev
                 YOKO = False
-        self.setSymbol("●　")
+        self.setSymbol("# ")
 
 def makeKuji(BOARD):
     lst = []
@@ -135,7 +134,7 @@ def setLink(lst, BOARD):
 
             if BOARD[i][j] == 1:
                 obj.right = lst[i][j+1]
-                obj.symbol = "｜ー"
+                obj.symbol = "|-"
             if BOARD[i][j-1] == 1:
                 obj.left = lst[i][j-1]
 
@@ -170,7 +169,7 @@ def print3Kuji(lst0, lst1, lst2):
     print()
 
 def main():
-    kuji_map = makeKujiMap(5)
+    kuji_map = makeKujiMap(8)
    
     kuji0 = makeKuji(kuji_map)
     kuji1 = copy.deepcopy(kuji0)
@@ -182,7 +181,7 @@ def main():
     kuji3[3][2].goKuji()
 
     print3Kuji(kuji0, kuji1, kuji2)
-    print2Kuji(kuji0, kuji3)
+#    print2Kuji(kuji0, kuji3)
   
 if __name__ == '__main__':
     main()
